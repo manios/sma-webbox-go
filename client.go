@@ -29,6 +29,7 @@ import (
 	"unicode/utf8"
 
 	"context"
+
 	"golang.org/x/oauth2"
 )
 
@@ -306,17 +307,17 @@ func (c *APIClient) prepareRequest(
 }
 
 func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err error) {
-		if strings.Contains(contentType, "application/xml") {
-			if err = xml.Unmarshal(b, v); err != nil {
-				return err
-			}
-			return nil
-		} else if strings.Contains(contentType, "application/json") || strings.Contains(contentType, "text/html;charset=utf-8")  {
-			if err = json.Unmarshal(b, v); err != nil {
-				return err
-			}
-			return nil
+	if strings.Contains(contentType, "application/xml") {
+		if err = xml.Unmarshal(b, v); err != nil {
+			return err
 		}
+		return nil
+	} else if strings.Contains(contentType, "application/json") || strings.Contains(contentType, "text/html;charset=utf-8") {
+		if err = json.Unmarshal(b, v); err != nil {
+			return err
+		}
+		return nil
+	}
 	return errors.New("undefined response type")
 }
 
@@ -357,17 +358,17 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 	} else if s, ok := body.(*string); ok {
 		_, err = bodyBuf.WriteString(*s)
 	} else if jsonCheck.MatchString(contentType) {
-//		err = json.NewEncoder(bodyBuf).Encode(b 
+		//		err = json.NewEncoder(bodyBuf).Encode(b
 
-var jsonBytes []byte 
-jsonBytes, err = json.Marshal(body) 
+		var jsonBytes []byte
+		jsonBytes, err = json.Marshal(body)
 
-if err == nil { 
- var mystr string 
- mystr = "RPC=" + string(jsonBytes) 
- fmt.Println(mystr) 
- _, err = bodyBuf.WriteString(mystr) 
- }
+		if err == nil {
+			var mystr string
+			mystr = "RPC=" + string(jsonBytes)
+			// fmt.Println(mystr)
+			_, err = bodyBuf.WriteString(mystr)
+		}
 	} else if xmlCheck.MatchString(contentType) {
 		xml.NewEncoder(bodyBuf).Encode(body)
 	}
