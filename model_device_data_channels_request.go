@@ -9,15 +9,15 @@
 
 package smawebboxgo
 
-// 
+//
 type DeviceDataChannelsRequest struct {
-	// 
+	//
 	Format string `json:"format,omitempty"`
-	// 
+	//
 	Proc string `json:"proc,omitempty"`
-	// 
+	//
 	Version string `json:"version,omitempty"`
-	// 
-	Id string `json:"id,omitempty"`
+	//
+	Id     string                           `json:"id,omitempty"`
 	Params *DeviceDataChannelsDeviceRequest `json:"params,omitempty"`
 }

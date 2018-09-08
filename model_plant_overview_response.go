@@ -19,6 +19,6 @@ type PlantOverviewResponse struct {
 	Version string `json:"version"`
 	// A random
 	Id string `json:"id"`
-	// 
+	//
 	Error_ string `json:"error,omitempty"`
 }

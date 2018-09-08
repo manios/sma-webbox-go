@@ -10,6 +10,6 @@
 package smawebboxgo
 
 type DevicesDto struct {
-	Devices []Device `json:"devices,omitempty"`
-	TotalDevicesReturned int32 `json:"totalDevicesReturned,omitempty"`
+	Devices              []Device `json:"devices,omitempty"`
+	TotalDevicesReturned int32    `json:"totalDevicesReturned,omitempty"`
 }

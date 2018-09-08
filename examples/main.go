@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	sma "gitlab.com/manios/sma-webbox-go"
+	sma "github.com/manios/sma-webbox-go"
 )
 
 func main() {

@@ -9,8 +9,8 @@
 
 package smawebboxgo
 
-// 
+//
 type ProcessDataRequestDevicesContainer struct {
-	// 
+	//
 	Devices []ProcessDataRequestDeviceObject `json:"devices,omitempty"`
 }

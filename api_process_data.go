@@ -10,11 +10,11 @@
 package smawebboxgo
 
 import (
+	"context"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"context"
 )
 
 // Linger please
@@ -24,7 +24,7 @@ var (
 
 type ProcessDataApiService service
 
-/* 
+/*
 ProcessDataApiService Returns process data for up to 5 devices per request.
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -34,15 +34,15 @@ ProcessDataApiService Returns process data for up to 5 devices per request.
 */
 func (a *ProcessDataApiService) GetProcessData(ctx context.Context, rpcbody ProcessDataRequest) (ProcessDataResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessDataResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/rpc";
+	localVarPath := a.client.cfg.BasePath + "/rpc"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -85,18 +85,18 @@ func (a *ProcessDataApiService) GetProcessData(ctx context.Context, rpcbody Proc
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 			if err != nil {
@@ -104,22 +104,22 @@ func (a *ProcessDataApiService) GetProcessData(ctx context.Context, rpcbody Proc
 			}
 
 			var v ProcessDataResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 
-/* 
+/*
 ProcessDataApiService List of the process data channels for a particular device type.
 Returns a list with the meta names of the available process data channels for a particular device type.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -129,15 +129,15 @@ Returns a list with the meta names of the available process data channels for a 
 */
 func (a *ProcessDataApiService) GetProcessDataChannels(ctx context.Context, rpcbody DeviceDataChannelsRequest) (ProcessDataChannelsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue ProcessDataChannelsResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/rpc";
+	localVarPath := a.client.cfg.BasePath + "/rpc"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -180,18 +180,18 @@ func (a *ProcessDataApiService) GetProcessDataChannels(ctx context.Context, rpcb
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 			if err != nil {
@@ -199,15 +199,15 @@ func (a *ProcessDataApiService) GetProcessDataChannels(ctx context.Context, rpcb
 			}
 
 			var v ProcessDataChannelsResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 

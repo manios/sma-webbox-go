@@ -10,11 +10,11 @@
 package smawebboxgo
 
 import (
+	"context"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"context"
 )
 
 // Linger please
@@ -24,7 +24,7 @@ var (
 
 type DeviceApiService service
 
-/* 
+/*
 DeviceApiService Devices connected to SMA Webbox
 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -34,15 +34,15 @@ DeviceApiService Devices connected to SMA Webbox
 */
 func (a *DeviceApiService) GetDevices(ctx context.Context, rpcbody GenericRequest) (DevicesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarFileName    string
+		localVarFileBytes   []byte
 		localVarReturnValue DevicesResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/rpc";
+	localVarPath := a.client.cfg.BasePath + "/rpc"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -85,18 +85,18 @@ func (a *DeviceApiService) GetDevices(ctx context.Context, rpcbody GenericReques
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 			if err != nil {
@@ -104,15 +104,15 @@ func (a *DeviceApiService) GetDevices(ctx context.Context, rpcbody GenericReques
 			}
 
 			var v DevicesResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 

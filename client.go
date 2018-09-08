@@ -313,6 +313,7 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 		}
 		return nil
 	} else if strings.Contains(contentType, "application/json") || strings.Contains(contentType, "text/html;charset=utf-8") {
+		//fmt.Println(string(b[:]))
 		if err = json.Unmarshal(b, v); err != nil {
 			return err
 		}

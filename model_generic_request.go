@@ -11,12 +11,12 @@ package smawebboxgo
 
 // Mother of all requests
 type GenericRequest struct {
-	// 
+	//
 	Format string `json:"format,omitempty"`
-	// 
+	//
 	Proc string `json:"proc,omitempty"`
-	// 
+	//
 	Version string `json:"version,omitempty"`
-	// 
+	//
 	Id string `json:"id,omitempty"`
 }

@@ -9,15 +9,15 @@
 
 package smawebboxgo
 
-// 
+//
 type ProcessDataRequest struct {
-	// 
+	//
 	Format string `json:"format,omitempty"`
-	// 
+	//
 	Proc string `json:"proc,omitempty"`
-	// 
+	//
 	Version string `json:"version,omitempty"`
-	// 
-	Id string `json:"id,omitempty"`
+	//
+	Id     string                              `json:"id,omitempty"`
 	Params *ProcessDataRequestDevicesContainer `json:"params,omitempty"`
 }

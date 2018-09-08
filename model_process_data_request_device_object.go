@@ -9,10 +9,10 @@
 
 package smawebboxgo
 
-// 
+//
 type ProcessDataRequestDeviceObject struct {
 	// A device unique key
 	Key string `json:"key,omitempty"`
-	// 
+	//
 	Channels []string `json:"channels,omitempty"`
 }

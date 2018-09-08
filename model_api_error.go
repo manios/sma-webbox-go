@@ -10,14 +10,14 @@
 package smawebboxgo
 
 type ApiError struct {
-	// 
+	//
 	Format string `json:"format"`
-	// 
+	//
 	Proc string `json:"proc"`
-	// 
+	//
 	Version string `json:"version"`
-	// 
+	//
 	Id string `json:"id"`
-	// 
+	//
 	Error_ string `json:"error,omitempty"`
 }

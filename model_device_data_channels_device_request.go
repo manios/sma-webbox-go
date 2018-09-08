@@ -9,8 +9,8 @@
 
 package smawebboxgo
 
-// 
+//
 type DeviceDataChannelsDeviceRequest struct {
-	// 
+	//
 	Device string `json:"device,omitempty"`
 }
