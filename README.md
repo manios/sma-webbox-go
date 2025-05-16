@@ -1,4 +1,4 @@
-[![Travis](https://travis-ci.org/manios/sma-webbox-go.svg?branch=master)](https://travis-ci.org/manios/sma-webbox-go) [![project status badge](https://img.shields.io/badge/status-active-green.svg)](https://img.shields.io/badge/status-active-green.svg) [![Project Goreport card analysis badge](https://goreportcard.com/badge/github.com/manios/sma-webbox-go?status.svg)](https://goreportcard.com/report/github.com/manios/sma-webbox-go)&nbsp;[![GoDoc](https://godoc.org/github.com/manios/sma-webbox-go?status.svg)](https://godoc.org/github.com/manios/sma-webbox-go)
+[![Build](https://github.com/manios/sma-webbox-go/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/manios/sma-webbox-go/actions/workflows/go.yml) [![project status badge](https://img.shields.io/badge/status-active-green.svg)](https://img.shields.io/badge/status-active-green.svg) [![Project Goreport card analysis badge](https://goreportcard.com/badge/github.com/manios/sma-webbox-go?status.svg)](https://goreportcard.com/report/github.com/manios/sma-webbox-go)&nbsp;[![GoDoc](https://godoc.org/github.com/manios/sma-webbox-go?status.svg)](https://godoc.org/github.com/manios/sma-webbox-go)
 
 # Go API client for SMA Sunny WebBox
 
@@ -6,14 +6,16 @@ The data loggers Sunny WebBox and Sunny WebBox with Bluetooth continuously recor
 
 Via the Sunny WebBox and Sunny WebBox with Bluetooth RPC interface, selected data from the PV plant can be transmitted to a remote terminal by means of an RPC protocol (Remote Procedure Call protocol).  Related documents: 
 
-* [SUNNY WEBBOX RPC User Manual v1.4](http://files.sma.de/dl/2585/SWebBoxRPC-BA-en-14.pdf) 
-* [SUNNY WEBBOX RPC User Manual v1.3](http://files.sma.de/dl/4253/SWebBoxRPC-eng-BUS112713.pdf)
+* [SUNNY WEBBOX RPC User Manual v1.4](https://files.sma.de/downloads/SWebBoxRPC-BA-en-14.pdf) 
+* [SUNNY WEBBOX RPC User Manual v1.3](https://files.sma.de/downloads/SWebBoxRPC-eng-BUS112713.pdf)
 
 # Overview
 
 - API version: 1.4.0
 
-This is an unofficial [Go](http://golang.org/) API client which currently supports [Sunny WebBox with Bluetooth](http://files.sma.de/dl/11567/SWebBox20-BA-en-13.pdf).
+This is an unofficial [Go](http://golang.org/) API client which currently supports [Sunny WebBox with Bluetooth](https://files.sma.de/downloads/SWebBox20-BA-en-13.pdf).
+
+https://files.sma.de/downloads/SWebBoxRPC-BA-en-14.pdf
 
 # Requirements
 
