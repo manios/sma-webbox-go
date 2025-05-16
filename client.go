@@ -29,8 +29,6 @@ import (
 	"unicode/utf8"
 
 	"context"
-
-	"golang.org/x/oauth2"
 )
 
 var (
@@ -277,17 +275,6 @@ func (c *APIClient) prepareRequest(
 
 		// Walk through any authentication.
 
-		// OAuth2 authentication
-		if tok, ok := ctx.Value(ContextOAuth2).(oauth2.TokenSource); ok {
-			// We were able to grab an oauth2 token from the context
-			var latestToken *oauth2.Token
-			if latestToken, err = tok.Token(); err != nil {
-				return nil, err
-			}
-
-			latestToken.SetAuthHeader(localVarRequest)
-		}
-
 		// Basic HTTP Authentication
 		if auth, ok := ctx.Value(ContextBasicAuth).(BasicAuth); ok {
 			localVarRequest.SetBasicAuth(auth.UserName, auth.Password)
@@ -312,7 +299,7 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 			return err
 		}
 		return nil
-	} else if strings.Contains(contentType, "application/json") || strings.Contains(contentType, "text/html;charset=utf-8") {
+	} else if strings.Contains(contentType, "application/json") || strings.Contains(contentType, "text/html") {
 		//fmt.Println(string(b[:]))
 		if err = json.Unmarshal(b, v); err != nil {
 			return err
